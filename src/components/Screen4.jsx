@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ScreenHearts from './ScreenHearts';
 
 const Screen4 = () => {
   const textLines = [
@@ -17,14 +18,17 @@ const Screen4 = () => {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12 relative z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
+      {/* Additional hearts flowing */}
+      <ScreenHearts count={40} />
+      
       {/* Background Gradient Overlay */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-rose-900/20 to-pink-800/20 pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-purple-900/20 to-rose-900/20 pointer-events-none"
         animate={{
           opacity: [0.3, 0.5, 0.3],
         }}
@@ -37,7 +41,7 @@ const Screen4 = () => {
 
       {/* Centered Card */}
       <motion.div
-        className="bg-gradient-to-br from-pink-900/50 to-rose-900/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-pink-500/30 shadow-2xl shadow-pink-500/20 max-w-2xl w-full relative z-10"
+        className="bg-gradient-to-br from-pink-900/50 to-purple-900/50 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-pink-500/40 shadow-2xl shadow-pink-500/30 max-w-2xl w-full relative z-10"
         initial={{ scale: 0.9, opacity: 0, y: 20, rotateX: -15 }}
         animate={{ 
           scale: 1, 
@@ -58,10 +62,10 @@ const Screen4 = () => {
               key={index}
               className={`${
                 line === '❤️'
-                  ? 'text-4xl md:text-5xl'
+                  ? 'text-3xl sm:text-4xl md:text-5xl'
                   : line === ''
-                  ? 'h-4'
-                  : 'text-base md:text-lg leading-relaxed text-pink-100'
+                  ? 'h-3 sm:h-4'
+                  : 'text-sm sm:text-base md:text-lg leading-relaxed text-pink-100 px-2'
               }`}
               initial={{ opacity: 0, y: 10, scale: 0.9 }}
               animate={{ 
@@ -90,7 +94,7 @@ const Screen4 = () => {
           transition={{ delay: textLines.length * 0.15 + 0.3 }}
         >
           <motion.div
-            className="text-4xl md:text-5xl"
+            className="text-3xl sm:text-4xl md:text-5xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.7, 1, 0.7],

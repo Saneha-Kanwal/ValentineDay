@@ -14,21 +14,53 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800/90 to-cyan-900/80 relative overflow-hidden">
-      {/* Animated wave background effect */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 via-transparent to-blue-800/20 animate-pulse" />
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/40 to-black relative overflow-hidden">
+      {/* Animated romantic background effect */}
+      <div className="absolute inset-0">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent"
+          className="absolute inset-0 bg-gradient-to-br from-pink-900/20 via-purple-900/15 to-rose-900/20"
+          animate={{
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-500/10 to-transparent"
           animate={{
             x: ['-100%', '100%'],
           }}
           transition={{
-            duration: 15,
+            duration: 20,
             repeat: Infinity,
             ease: 'linear',
           }}
         />
+        {/* Subtle star particles */}
+        <div className="absolute inset-0">
+          {[...Array(50)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-pink-300/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
       </div>
       
       {/* Floating Heart Particles Background */}

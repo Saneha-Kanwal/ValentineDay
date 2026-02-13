@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ScreenHearts from './ScreenHearts';
 
 const Screen1 = ({ onNext }) => {
   const containerVariants = {
@@ -31,19 +32,21 @@ const Screen1 = ({ onNext }) => {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center px-4 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 relative z-10 py-8"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
     >
+      {/* Additional hearts flowing */}
+      <ScreenHearts count={40} />
       {/* Character Image */}
       <motion.div
         variants={itemVariants}
-        className="relative mb-8"
+        className="relative mb-6 sm:mb-8"
       >
         <motion.div 
-          className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden"
+          className="relative w-28 h-28 xs:w-32 xs:h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden"
           animate={{
             scale: [1, 1.05, 1],
             rotate: [0, 5, -5, 0],
@@ -85,7 +88,7 @@ const Screen1 = ({ onNext }) => {
       {/* Heading */}
       <motion.h1
         variants={itemVariants}
-        className="romantic-heading text-4xl md:text-6xl font-bold text-white mb-4 text-center"
+        className="romantic-heading text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 sm:mb-4 text-center px-2"
         animate={{
           textShadow: [
             '0 0 10px rgba(255, 192, 203, 0.5)',
@@ -105,7 +108,7 @@ const Screen1 = ({ onNext }) => {
       {/* Subtext */}
       <motion.p
         variants={itemVariants}
-        className="text-lg md:text-xl text-pink-200 mb-8 text-center max-w-md"
+        className="text-base xs:text-lg sm:text-xl md:text-xl text-pink-200 mb-6 sm:mb-8 text-center max-w-md px-4"
       >
         Do you even know how cute you are?
       </motion.p>
@@ -114,7 +117,7 @@ const Screen1 = ({ onNext }) => {
       <motion.button
         variants={itemVariants}
         onClick={onNext}
-        className="px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full text-white font-semibold text-lg shadow-lg shadow-pink-500/50 hover:shadow-xl hover:shadow-pink-500/60 transition-all duration-300"
+        className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full text-white font-semibold text-base sm:text-lg shadow-lg shadow-pink-500/50 hover:shadow-xl hover:shadow-pink-500/60 transition-all duration-300 touch-manipulation"
         whileHover={{
           scale: 1.1,
           boxShadow: '0 0 30px rgba(236, 72, 153, 0.8)',

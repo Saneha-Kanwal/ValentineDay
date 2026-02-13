@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ScreenHearts from './ScreenHearts';
 
 const Screen3 = ({ onNext }) => {
   const [revealed, setRevealed] = useState([false, false, false, false]);
@@ -19,15 +20,18 @@ const Screen3 = ({ onNext }) => {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12 relative z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* Additional hearts flowing */}
+      <ScreenHearts count={50} />
+      
       {/* Top Heart Icon */}
       <motion.div
-        className="text-5xl md:text-6xl mb-6"
+        className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-6"
         initial={{ scale: 0, opacity: 0, rotate: -180 }}
         animate={{ 
           scale: 1, 
@@ -53,7 +57,7 @@ const Screen3 = ({ onNext }) => {
 
       {/* Heading */}
       <motion.h2
-        className="romantic-heading text-3xl md:text-4xl font-bold text-white mb-2 text-center"
+        className="romantic-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 text-center px-2"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
@@ -63,7 +67,7 @@ const Screen3 = ({ onNext }) => {
 
       {/* Subtext */}
       <motion.p
-        className="text-pink-200 mb-8 text-center text-sm md:text-base"
+        className="text-pink-200 mb-6 sm:mb-8 text-center text-xs sm:text-sm md:text-base px-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
@@ -72,11 +76,11 @@ const Screen3 = ({ onNext }) => {
       </motion.p>
 
       {/* Heart Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-2xl w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 max-w-2xl w-full px-2">
         {messages.map((message, index) => (
           <motion.div
             key={index}
-            className="bg-gradient-to-br from-pink-900/40 to-rose-900/40 backdrop-blur-md rounded-2xl p-6 border border-pink-500/30 shadow-lg cursor-pointer hover:border-pink-400/50 transition-all duration-300 min-h-[120px] flex items-center justify-center"
+            className="bg-gradient-to-br from-pink-900/50 to-purple-900/50 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-pink-500/40 shadow-lg cursor-pointer hover:border-pink-400/60 transition-all duration-300 min-h-[100px] sm:min-h-[120px] flex items-center justify-center touch-manipulation"
             initial={{ opacity: 0, y: 20, rotateX: -90 }}
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
             transition={{ delay: 0.5 + index * 0.1, type: 'spring', stiffness: 100 }}
@@ -92,7 +96,7 @@ const Screen3 = ({ onNext }) => {
               {!revealed[index] ? (
                 <motion.div
                   key="heart"
-                  className="text-4xl"
+                  className="text-3xl sm:text-4xl"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ 
                     scale: 1,
@@ -118,7 +122,7 @@ const Screen3 = ({ onNext }) => {
               ) : (
                 <motion.p
                   key="message"
-                  className="text-white text-center text-base md:text-lg font-medium"
+                  className="text-white text-center text-sm sm:text-base md:text-lg font-medium px-2"
                   initial={{ opacity: 0, y: 10, scale: 0.8 }}
                   animate={{ 
                     opacity: 1, 
@@ -142,7 +146,7 @@ const Screen3 = ({ onNext }) => {
       {/* See More Button */}
       <motion.button
         onClick={onNext}
-        className="px-8 py-4 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full text-white font-semibold text-lg shadow-lg shadow-pink-500/50 hover:shadow-xl hover:shadow-pink-500/60 transition-all duration-300"
+        className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full text-white font-semibold text-base sm:text-lg shadow-lg shadow-pink-500/50 hover:shadow-xl hover:shadow-pink-500/60 transition-all duration-300 touch-manipulation"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}

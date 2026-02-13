@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ScreenHearts from './ScreenHearts';
 
 const Screen2 = ({ onNext }) => {
   const [percentage, setPercentage] = useState(0);
@@ -51,14 +52,17 @@ const Screen2 = ({ onNext }) => {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center px-4 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 relative z-10 py-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      {/* Additional hearts flowing */}
+      <ScreenHearts count={45} />
+      
       <motion.div
-        className="bg-gradient-to-br from-pink-900/40 to-rose-900/40 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-pink-500/30 shadow-2xl shadow-pink-500/20 max-w-md w-full"
+        className="bg-gradient-to-br from-pink-900/50 to-purple-900/50 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-pink-500/40 shadow-2xl shadow-pink-500/30 max-w-md w-full relative"
         initial={{ scale: 0.9, opacity: 0, rotateY: -15 }}
         animate={{ 
           scale: 1, 
@@ -72,7 +76,7 @@ const Screen2 = ({ onNext }) => {
         }}
       >
         <motion.h2
-          className="romantic-heading text-2xl md:text-3xl font-semibold text-white text-center mb-8"
+          className="romantic-heading text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-6 sm:mb-8 px-2"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -82,7 +86,7 @@ const Screen2 = ({ onNext }) => {
 
         {/* Percentage Counter */}
         <motion.div
-          className="text-6xl md:text-7xl font-bold text-center mb-6 bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold text-center mb-4 sm:mb-6 bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent"
           key={percentage}
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -114,7 +118,7 @@ const Screen2 = ({ onNext }) => {
         </div>
 
         <motion.p
-          className="text-pink-200 text-center text-sm md:text-base"
+          className="text-pink-200 text-center text-xs sm:text-sm md:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -132,7 +136,7 @@ const Screen2 = ({ onNext }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-xl md:text-2xl font-bold text-red-400 animate-pulse">
+              <p className="text-lg sm:text-xl md:text-2xl font-bold text-red-400 animate-pulse px-2">
                 ⚠ WARNING: TOO CUTE TO HANDLE
               </p>
             </motion.div>

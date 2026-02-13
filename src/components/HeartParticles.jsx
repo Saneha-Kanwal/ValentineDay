@@ -48,7 +48,10 @@ const HeartParticles = () => {
       {floatingHearts.map((heart) => (
         <motion.div
           key={heart.id}
-          className="absolute text-pink-400/20 text-2xl"
+          className="absolute text-pink-400/25"
+          style={{
+            filter: 'drop-shadow(0 0 3px rgba(236, 72, 153, 0.3))',
+          }}
           initial={{
             x: `${heart.x}vw`,
             y: `${heart.y}vh`,
@@ -56,8 +59,9 @@ const HeartParticles = () => {
           }}
           animate={{
             y: [`${heart.y}vh`, `${heart.y - 20}vh`, `${heart.y}vh`],
-            opacity: [0, 0.3, 0],
-            scale: [1, 1.2, 1],
+            opacity: [0, 0.4, 0],
+            scale: [1, 1.3, 1],
+            rotate: [0, 10, -10, 0],
           }}
           transition={{
             duration: heart.duration,
@@ -74,10 +78,11 @@ const HeartParticles = () => {
       {flowingHearts.map((heart) => (
         <motion.div
           key={heart.id}
-          className="absolute text-pink-400/30"
+          className="absolute text-pink-400/35"
           style={{
             fontSize: `${heart.size * 1.5}rem`,
             left: `${heart.x}%`,
+            filter: 'drop-shadow(0 0 4px rgba(236, 72, 153, 0.4))',
           }}
           initial={{
             y: `${heart.startY}vh`,
@@ -86,15 +91,15 @@ const HeartParticles = () => {
           }}
           animate={{
             y: `${heart.endY}vh`,
-            opacity: [0, 0.6, 0.6, 0],
-            rotate: [0, 15, -15, 0],
-            scale: [0.8, 1, 1, 0.8],
+            opacity: [0, 0.7, 0.7, 0],
+            rotate: [0, 20, -20, 10, -10, 0],
+            scale: [0.7, 1, 1.1, 1, 0.7],
           }}
           transition={{
             duration: heart.duration,
             delay: heart.delay,
             repeat: Infinity,
-            ease: 'linear',
+            ease: 'easeInOut',
           }}
         >
           ❤️
