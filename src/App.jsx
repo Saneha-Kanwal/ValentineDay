@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import HeartParticles from './components/HeartParticles';
 import Screen1 from './components/Screen1';
 import Screen2 from './components/Screen2';
