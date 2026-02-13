@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import HeartParticles from './components/HeartParticles';
+import RomanticAudio from './components/RomanticAudio';
 import Screen1 from './components/Screen1';
 import Screen2 from './components/Screen2';
 import Screen3 from './components/Screen3';
@@ -65,6 +66,9 @@ function App() {
       
       {/* Floating Heart Particles Background */}
       <HeartParticles />
+
+      {/* Romantic Background Audio */}
+      <RomanticAudio />
 
       {/* Screen Content */}
       <AnimatePresence mode="wait">
